@@ -18,7 +18,7 @@ public class UiType {
     private String type;
     @SerializedName("values")
     @Expose
-    private List<Object> values = null;
+    private List<Value> values = null;
 
     public String getType() {
         return type;
@@ -28,11 +28,11 @@ public class UiType {
         this.type = type;
     }
 
-    public List<Object> getValues() {
+    public List<Value> getValues() {
         return values;
     }
 
-    public void setValues(List<Object> values) {
+    public void setValues(List<Value> values) {
         this.values = values;
     }
 }
