@@ -19,14 +19,15 @@ public class ApiClient {
 
     /**
      * This function creates the Retrofit instance & states the baseUrl
+     *
      * @return Retrofit
      */
     public static Retrofit getApiClient() {
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         client.addInterceptor(loggingInterceptor);
-        if (retrofit == null) {
 
+        if (retrofit == null) {
             retrofit = new Retrofit.Builder()
                     .baseUrl("https://api-staging.bankaks.com/task/") // Baseurl for the test
                     .client(client.build())
@@ -34,6 +35,7 @@ public class ApiClient {
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .build();
         }
+
         return retrofit;
     }
 }

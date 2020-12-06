@@ -15,6 +15,10 @@ import retrofit2.http.*;
 
 public interface ApiInterface {
 
+    /**
+     * @param option This is an int value that is passed as the endpoint of the api.
+     * @return This interface method returns a Call<Main> object.
+     */
     @GET("{type}")
     Call<Main> getDynamicUI(@Path("type") int option);
 }

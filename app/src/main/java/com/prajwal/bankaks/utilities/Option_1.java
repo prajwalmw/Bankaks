@@ -23,6 +23,12 @@ import com.prajwal.bankaks.model.Result;
 
 public class Option_1 {
 
+
+    /**
+     * @param context The context of the Dyanmic activity class.
+     * @param result The instance of the Result api class.
+     * @return LinearLayout is the return type for this function.
+     */
     public LinearLayout option_1_Screen(Context context, Result result) {
         LinearLayout linearLayout = new LinearLayout(context);
         linearLayout.setOrientation(LinearLayout.VERTICAL);

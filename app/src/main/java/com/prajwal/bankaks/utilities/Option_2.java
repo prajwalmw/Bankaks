@@ -28,6 +28,11 @@ import java.util.List;
 
 public class Option_2 {
 
+    /**
+     * @param context The context of the Dyanmic activity class.
+     * @param result The instance of the Result api class.
+     * @return LinearLayout is the return type for this function.
+     */
     public LinearLayout option_2_Screen(Context context, Result result) {
         LinearLayout linearLayout = new LinearLayout(context);
         linearLayout.setOrientation(LinearLayout.VERTICAL);
