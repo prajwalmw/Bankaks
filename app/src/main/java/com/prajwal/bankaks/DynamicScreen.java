@@ -68,7 +68,6 @@ public class DynamicScreen extends AppCompatActivity {
             @Override
             public void onFailure(Call<Main> call, Throwable t) {
                 Log.d("tag", "tag");
-                progressBar.setVisibility(View.GONE);
                 Toast.makeText(context, "Check your internet connection...", Toast.LENGTH_SHORT).show();
             }
         });
