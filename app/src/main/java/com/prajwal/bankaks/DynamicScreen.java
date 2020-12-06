@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -67,6 +68,7 @@ public class DynamicScreen extends AppCompatActivity {
             @Override
             public void onFailure(Call<Main> call, Throwable t) {
                 Log.d("tag", "tag");
+                progressBar.setVisibility(View.GONE);
                 Toast.makeText(context, "Check your internet connection...", Toast.LENGTH_SHORT).show();
             }
         });

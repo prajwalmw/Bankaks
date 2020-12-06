@@ -1,6 +1,7 @@
 package com.prajwal.bankaks.utilities;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.prajwal.bankaks.R;
 import com.prajwal.bankaks.model.Result;
@@ -55,6 +57,7 @@ public class Option_2 {
         }
 
         Spinner spinner = new Spinner(context);
+        spinner.setFocusable(true);
         RelativeLayout r_s = new RelativeLayout(context);
         r1.setId(View.generateViewId());
         //r1.setBackground(getDrawable(R.color.purple_200));
@@ -76,6 +79,25 @@ public class Option_2 {
         button.setText("Proceed");
         button.setPadding(0, 50, 0, 50);
         b_rel.addView(button, b_rel_par);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(result.getFields().get(0).getIsMandatory().equalsIgnoreCase("true")) {
+                    if(spinner.getSelectedItemPosition() != 0) {
+                        Toast.makeText(context, "Month: "+ spinner.getSelectedItem(), Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        TextView t = (TextView) spinner.getSelectedView();
+                        spinner.requestFocus();
+                        t.setError("Select Month");
+                        t.setTextColor(Color.RED);
+                        Toast.makeText(context, "Please Select Month from DropDown", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+            }
+        });
 
         linearLayout.addView(title);
         linearLayout.addView(r1);

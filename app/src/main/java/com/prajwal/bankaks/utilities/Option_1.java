@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.prajwal.bankaks.DynamicScreen;
 import com.prajwal.bankaks.R;
@@ -46,6 +47,7 @@ public class Option_1 {
         sc_no.setText(result.getFields().get(0).getPlaceholder());
 
         EditText sc_edit = new EditText(context);
+        sc_edit.setFocusable(true);
         r_L1.addRule(RelativeLayout.BELOW, sc_no.getId());
         sc_edit.setPadding(10, 80, 10, 30);
         sc_edit.setHint(result.getFields().get(0).getHintText());
@@ -67,6 +69,7 @@ public class Option_1 {
         cust_id.setText(result.getFields().get(1).getPlaceholder());
 
         EditText cust_edit = new EditText(context);
+        cust_edit.setFocusable(true);
         r_L2.addRule(RelativeLayout.BELOW, cust_id.getId());
         cust_edit.setPadding(10, 120, 10, 30);
         cust_edit.setHint(result.getFields().get(1).getHintText());
@@ -88,6 +91,32 @@ public class Option_1 {
         linearLayout.addView(r2);
         linearLayout.addView(b_rel);
         //this.DynamicScreen.setContentView(linearLayout);
+
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(result.getFields().get(0).getIsMandatory().equalsIgnoreCase("true")) {
+                    if(sc_edit.getText().toString() == null || sc_edit.getText().toString().isEmpty()) {
+                        sc_edit.requestFocus();
+                        sc_edit.setError("This field is mandatory");
+                        return;
+                    }
+                    else {
+                        Toast.makeText(context, "SC Number: " +sc_edit.getText().toString(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+                if(result.getFields().get(1).getIsMandatory().equalsIgnoreCase("true")) {
+                    if(cust_edit.getText().toString() == null || cust_edit.getText().toString().isEmpty()) {
+                        cust_edit.requestFocus();
+                        cust_edit.setError("This field is mandatory");
+                        return;
+                    }
+                    else {
+                        Toast.makeText(context, "Consumer ID: " + cust_edit.getText().toString(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
         return linearLayout;
     }
 
